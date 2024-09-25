@@ -2,6 +2,7 @@ const UserAuthModel = require("../models/auth.model.js");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const customError = require("../util/customError.js");
+const jwt = require("jsonwebtoken");
 
 class authService {
 
@@ -17,6 +18,11 @@ class authService {
             if(!isValidPassword) {
                 return next(customError(500, 'Incorrect Password'));
             }
+            const token = jwt.sign(
+                email,
+                process.env.JWT_SECRET_KEY,
+            )
+            res.cookie('accessToken', token, {httpOnly: true, maxAge : 60 * 60 * 1000});
             return res.status(200).json("You are successfully logged in");
         } catch (error) {
             next(error);
@@ -36,6 +42,11 @@ class authService {
         } catch (error) {
             next(error);
         }
+    }
+
+    signOut (req, res, next) {
+        res.clearCookie('accessToken');
+        res.send('cookie is cleared');
     }
 };
 
