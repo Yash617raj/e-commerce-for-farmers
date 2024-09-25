@@ -17,7 +17,7 @@ class authService {
             if(!isValidPassword) {
                 return next(customError(500, 'Incorrect Password'));
             }
-            return res.status(200).send("You are successfully logged in");
+            return res.status(200).json("You are successfully logged in");
         } catch (error) {
             next(error);
         }

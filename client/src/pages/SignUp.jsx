@@ -46,7 +46,7 @@ export default function SignUp() {
       }
 
       console.log(data);
-      navigate('/');
+      navigate('/sign-in');
     } catch (error) {
       console.log("Error while signing up you")
     }
@@ -100,7 +100,7 @@ export default function SignUp() {
               checked = {signUpData.type === "farmer"}
               className="h-5 w-5 text-teal-600 focus:ring-teal-500"
             />
-            <span className="ml-2 text-slate-50">Farmer</span>
+            <span className="ml-2 text-slate-50 text-lg">Farmer</span>
           </label>
           <label className="flex items-center">
             <input
@@ -110,7 +110,7 @@ export default function SignUp() {
               checked={signUpData.type === "retailer"}
               className="h-5 w-5 text-teal-600 focus:ring-teal-500"
             />
-            <span className="ml-2 text-slate-50">Retailer/Company</span>
+            <span className="ml-2 text-slate-50 text-lg">Retailer/Company</span>
           </label>
         </div>
         <input
