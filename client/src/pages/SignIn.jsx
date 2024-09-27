@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { signInSuccess } from "../redux/user/userSlice";
 
 export default function SignIn() {
 
@@ -8,6 +10,8 @@ export default function SignIn() {
     password : "",
     type : ""
   });
+
+  const dispatch = useDispatch();
 
   const [error, setError] = useState("");
 
@@ -19,7 +23,7 @@ export default function SignIn() {
       setSignInFormData({
         ...signInFormData,
         type : e.target.id
-      })
+      })  
       return;
     }
 
@@ -48,6 +52,7 @@ export default function SignIn() {
         return;
       }
 
+      dispatch(signInSuccess(data));
       console.log(data);
       navigate("/");
     } catch (error) {
