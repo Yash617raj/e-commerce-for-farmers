@@ -5,7 +5,7 @@ import SignIn from '../pages/SignIn';
 
 export default function PrivateRoute() {
   const user = useSelector(state => state.user);
-  console.log(user);
+  console.log(user)
   return (
     user.currentUser ? <Outlet /> : <SignIn />
   )

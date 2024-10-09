@@ -69,7 +69,7 @@ const Listing = new mongoose.Schema({
             required : true
         },
 
-        MinOrderQuantity : {
+        minOrderQuantity : {
             type : String,
             required : true
         },
