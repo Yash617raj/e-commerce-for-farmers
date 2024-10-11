@@ -5,6 +5,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from './pages/SignUp';
 import PrivateRoute from "./components/PrivateRoute";
 import ProductListing from "./pages/ProductListing";
+import Shop from "./pages/Shop";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
             <Route path="/sign-up" element={<SignUp />}></Route>
             <Route element={<PrivateRoute />}>
               <Route path="/productlisting" element={< ProductListing />}></Route>
+              <Route path="/shopping" element={<Shop />}></Route>
             </Route>
           </Routes>
       </BrowserRouter>
